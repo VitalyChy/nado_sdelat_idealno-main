@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+.page {
+  position: relative;
+  display: flex;
+  height: 100%;
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  background-color: #fec7ee;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* указали смещение позиционир элем. с 4 сторон */
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.page__video {
+  position: absolute;  
+  inset: 0; /* указали смещение позиционир элем. с 4 сторон */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.page__title {
+  z-index: 1;
+  max-width: 720px;  
+  margin: 0 auto;
+  padding-top: 115px;
+  font-family: 'Raleway';
+  font-size: 116px;  
+  line-height: normal;
+  letter-spacing: 4.06px; /* Отступ между буквами */
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.page__title::after {
+  content: '*'; /* Сделал в конце title '*' */
+  position: relative;
+}
+
+.page__title:hover {
+  color: #4C4C4C;
+  cursor: default;
+}
+
+.page__title:hover::before { /* Комментарий по наводке курсора */
+  content: 'На самом деле нет.\AВажнее &mdash; научиться ошибаться.'; /* С помощью \A перенес текст на вторую строку */
+  position: absolute;
+  top: 182px;
+  right: 22px;
+  max-width: 742px; 
+  margin-top: 50px;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 36px 44px;
+  box-shadow: 0 12px 0 #000;
+  color: #000;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 1;
+  letter-spacing: normal; /* Интервал между текстом */
+  text-align: left; /* Выравнивание по левому краю */
+  text-transform: initial; /* Замена на строчные */
+  background: #FFF;
+  white-space: pre; /* Конструкция white-space: pre; заставляет текст вести себя так, будто он обёрнут в HTML-тег <pre></pre> */
+}
